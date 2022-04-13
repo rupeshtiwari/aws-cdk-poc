@@ -6,6 +6,7 @@ import {
   aws_glue as glue,
   aws_s3_deployment as s3deploy,
   RemovalPolicy,
+  AssetOptions,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as path from 'path';
@@ -15,7 +16,7 @@ const GLUE_VERSION = '3.0';
 //This value must be glueetl for Apache Spark
 const COMMAND_NAME = 'glueetl';
 const SPARKAVRO_PATH = 'jars/spark-avro_2.12-3.1.2.jar';
-const BUCKET_NAME = 'octank-poc-bucket';
+const BUCKET_NAME = 'octank-sdp-job-bucket';
 
 export class PocStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -37,25 +38,33 @@ export class PocStack extends Stack {
     const streamKafkaEventJob = new glue.CfnJob(this, streamKafkaEventJobName, {
       name: streamKafkaEventJobName,
       role: role.roleArn,
+      description: 'Octank Security Data Platform Job',
       command: {
         name: COMMAND_NAME,
-        scriptLocation: `s3://${bucketName}/spark/streaming.scala`,
+        scriptLocation: `s3://${bucketName}/assets/spark/streaming.scala`,
       },
       glueVersion: GLUE_VERSION,
       defaultArguments: {
-        '--extra-jars': `s3://${bucketName}/${SPARKAVRO_PATH}`,
+        '--extra-jars': `s3://${bucketName}/assets/${SPARKAVRO_PATH}`,
         '--executor-cores': 8,
+        '--enable-metrics': true,
+        '--enable-continuous-cloudwatch-log': true,
+        '--enable-spark-ui': true,
+        '-enable-auto-scaling': true,
       },
+      // Please set both Worker Type and Number of Workers.
       numberOfWorkers: 30,
+      workerType: 'G.1X',
     });
   }
 
   private createS3Bucket() {
     const myBucket = new s3.Bucket(this, 'MyCdkGlueJobBucket', {
       versioned: true,
-      bucketName: 'octank-sdp-job-bucket',
-      removalPolicy: RemovalPolicy.RETAIN,
+      bucketName: BUCKET_NAME,
+      removalPolicy: RemovalPolicy.DESTROY,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      autoDeleteObjects: true,
     });
 
     return myBucket;
@@ -63,7 +72,7 @@ export class PocStack extends Stack {
 
   private uploadFilesToS3(bucket: s3.Bucket) {
     new s3deploy.BucketDeployment(this, 'DeployGlueJobFiles', {
-      sources: [s3deploy.Source.asset(path.join(__dirname, '../assets'))],
+      sources: [s3deploy.Source.asset('./assets')],
       destinationBucket: bucket,
       destinationKeyPrefix: 'assets',
     });
