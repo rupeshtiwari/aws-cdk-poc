@@ -1,16 +1,42 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { aws_iam as iam, aws_s3 as s3, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class CdkPocStack extends Stack {
+export class PocStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
+    this.createStack();
+  }
 
-    // The code that defines your stack goes here
+  createStack() {
+    const role = this.createGlueRole();
+    this.assignPermisssion(role);
+  }
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkPocQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+  private createGlueRole() {
+    // Create a new Role for Glue
+    const role = new iam.Role(this, 'access-glue-poc', {
+      assumedBy: new iam.ServicePrincipal('glue.amazonaws.com'),
+    });
+
+    // Add AWSGlueServiceRole to role.
+    const gluePolicy = iam.ManagedPolicy.fromAwsManagedPolicyName(
+      'service-role/AWSGlueServiceRole'
+    );
+    role.addManagedPolicy(gluePolicy);
+
+    return role;
+  }
+
+  private assignPermisssion(role: iam.Role) {
+    const dataBucketName = 'octank-poc-bucket';
+
+    // Assign permission to data bucket
+    const dataS3Bucket = s3.Bucket.fromBucketName(
+      this,
+      'existingBucket',
+      dataBucketName
+    );
+
+    dataS3Bucket.grantReadWrite(role);
   }
 }
