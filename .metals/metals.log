@@ -1,0 +1,134 @@
+2022.04.13 19:10:03 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/rupeshti/workdir/git-box/cdk-poc/.metals/lsp.trace.json or /Users/rupeshti/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.13 19:10:04 INFO  logging to file /Users/rupeshti/workdir/git-box/cdk-poc/.metals/metals.log
+2022.04.13 19:10:04 INFO  Started: Metals version 0.11.2 in workspace '/Users/rupeshti/workdir/git-box/cdk-poc' for client Visual Studio Code 1.66.2.
+2022.04.13 19:10:04 INFO  Parse release: 11.0.14
+2022.04.13 19:10:08 INFO  time: initialize in 4.2s
+2022.04.13 19:10:09 WARN  Build server is not auto-connectable.
+2022.04.13 19:10:09 WARN  no build tool detected in workspace '/Users/rupeshti/workdir/git-box/cdk-poc'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2022.04.13 19:10:11 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:10:18 INFO  no build target found for /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.13 19:10:21 INFO  time: code lens generation in 2.46s
+2022.04.13 19:10:21 INFO  time: code lens generation in 9.57s
+Apr 13, 2022 7:10:29 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2022.04.13 19:11:40 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:11:44 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:11:52 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:11:57 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:11:59 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:12:02 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:12:09 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:12:14 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:13:12 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:13:15 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+Apr 13, 2022 7:14:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 201
+2022.04.13 19:14:43 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:14:45 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:36 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:40 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:46 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:49 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:51 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:18:59 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:01 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:40 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:42 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:47 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:49 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:51 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:19:52 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.12/3.4.0/scalafmt-core_2.12-3.4.0.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.12/3.4.0/scalafmt-core_2.12-3.4.0.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-sysops_2.12/3.4.0/scalafmt-sysops_2.12-3.4.0.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-config_2.12/3.4.0/scalafmt-config_2.12-3.4.0.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalameta_2.12/4.4.33/scalameta_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-sysops_2.12/3.4.0/scalafmt-sysops_2.12-3.4.0.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalameta_2.12/4.4.33/scalameta_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-config_2.12/3.4.0/scalafmt-config_2.12-3.4.0.pom
+Downloading https://repo1.maven.org/maven2/com/geirsson/metaconfig-core_2.12/0.9.15/metaconfig-core_2.12-0.9.15.pom
+Downloading https://repo1.maven.org/maven2/com/geirsson/metaconfig-typesafe-config_2.12/0.9.15/metaconfig-typesafe-config_2.12-0.9.15.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/parsers_2.12/4.4.33/parsers_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/parsers_2.12/4.4.33/parsers_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/com/geirsson/metaconfig-typesafe-config_2.12/0.9.15/metaconfig-typesafe-config_2.12-0.9.15.pom
+Downloaded https://repo1.maven.org/maven2/com/geirsson/metaconfig-core_2.12/0.9.15/metaconfig-core_2.12-0.9.15.pom
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/pprint_2.12/0.6.6/pprint_2.12-0.6.6.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/trees_2.12/4.4.33/trees_2.12-4.4.33.pom
+Downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.12/2.5.0/scala-collection-compat_2.12-2.5.0.pom
+Downloaded https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.12/2.5.0/scala-collection-compat_2.12-2.5.0.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/trees_2.12/4.4.33/trees_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/pprint_2.12/0.6.6/pprint_2.12-0.6.6.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/common_2.12/4.4.33/common_2.12-4.4.33.pom
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.2.7/sourcecode_2.12-0.2.7.pom
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/fansi_2.12/0.2.14/fansi_2.12-0.2.14.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/common_2.12/4.4.33/common_2.12-4.4.33.pom
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/fansi_2.12/0.2.14/fansi_2.12-0.2.14.pom
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.2.7/sourcecode_2.12-0.2.7.pom
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/geny_2.12/0.6.5/geny_2.12-0.6.5.pom
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/geny_2.12/0.6.5/geny_2.12-0.6.5.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.12/3.4.0/scalafmt-core_2.12-3.4.0.jar
+Downloading https://repo1.maven.org/maven2/com/geirsson/metaconfig-core_2.12/0.9.15/metaconfig-core_2.12-0.9.15.jar
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/pprint_2.12/0.6.6/pprint_2.12-0.6.6.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/common_2.12/4.4.33/common_2.12-4.4.33.jar
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/fansi_2.12/0.2.14/fansi_2.12-0.2.14.jar
+Downloading https://repo1.maven.org/maven2/com/geirsson/metaconfig-typesafe-config_2.12/0.9.15/metaconfig-typesafe-config_2.12-0.9.15.jar
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/fansi_2.12/0.2.14/fansi_2.12-0.2.14.jar
+Downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.12/2.5.0/scala-collection-compat_2.12-2.5.0.jar
+Downloaded https://repo1.maven.org/maven2/com/geirsson/metaconfig-typesafe-config_2.12/0.9.15/metaconfig-typesafe-config_2.12-0.9.15.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-config_2.12/3.4.0/scalafmt-config_2.12-3.4.0.jar
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/pprint_2.12/0.6.6/pprint_2.12-0.6.6.jar
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/geny_2.12/0.6.5/geny_2.12-0.6.5.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-config_2.12/3.4.0/scalafmt-config_2.12-3.4.0.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalameta_2.12/4.4.33/scalameta_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.12/2.5.0/scala-collection-compat_2.12-2.5.0.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-sysops_2.12/3.4.0/scalafmt-sysops_2.12-3.4.0.jar
+Downloaded https://repo1.maven.org/maven2/com/geirsson/metaconfig-core_2.12/0.9.15/metaconfig-core_2.12-0.9.15.jar
+Downloading https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.2.7/sourcecode_2.12-0.2.7.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-sysops_2.12/3.4.0/scalafmt-sysops_2.12-3.4.0.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/trees_2.12/4.4.33/trees_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/geny_2.12/0.6.5/geny_2.12-0.6.5.jar
+Downloading https://repo1.maven.org/maven2/org/scalameta/parsers_2.12/4.4.33/parsers_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalameta_2.12/4.4.33/scalameta_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.2.7/sourcecode_2.12-0.2.7.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.12/3.4.0/scalafmt-core_2.12-3.4.0.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/common_2.12/4.4.33/common_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/parsers_2.12/4.4.33/parsers_2.12-4.4.33.jar
+Downloaded https://repo1.maven.org/maven2/org/scalameta/trees_2.12/4.4.33/trees_2.12-4.4.33.jar
+2022.04.13 19:20:03 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:13 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:17 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:26 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:36 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:37 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:20:59 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:00 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:02 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:22 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:27 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:29 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:30 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:32 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:33 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:40 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:48 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:50 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:53 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:21:59 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:00 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:04 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:37 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:41 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:44 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:48 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:22:57 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:23:01 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:23:12 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:23:21 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:23:56 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:24:07 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:26:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:26:41 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:27:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:27:45 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+2022.04.13 19:27:55 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala

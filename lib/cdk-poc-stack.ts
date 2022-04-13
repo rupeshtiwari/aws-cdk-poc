@@ -51,6 +51,7 @@ export class PocStack extends Stack {
         '--enable-continuous-cloudwatch-log': true,
         '--enable-spark-ui': true,
         '-enable-auto-scaling': true,
+        '--job-language': 'scala',
       },
       // Please set both Worker Type and Number of Workers.
       numberOfWorkers: 30,
