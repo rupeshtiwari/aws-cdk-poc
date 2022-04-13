@@ -17,3 +17,10 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `cdk deploy`      deploy this stack to your default AWS account/region
 * `cdk diff`        compare deployed stack with current state
 * `cdk synth`       emits the synthesized CloudFormation template
+
+## References
+- `git pull && git add . && git commit -m 'updates' && git push`
+
+- https://medium.com/@kargawal.abhishek/aws-cdk-deploy-managed-etl-using-aws-glue-job-1925098ec40f 
+
+- https://datachef.co/blog/deploy-pythonshell-gluejob-using-cdk/
