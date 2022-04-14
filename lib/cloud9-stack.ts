@@ -32,7 +32,7 @@ export class Cloud9Stack extends Stack {
       description:
         'cloud9 environment for Octank to publish events on kafka topic',
       subnetId: vpc.isolatedSubnets[0].subnetId,
-        
+    
       tags: [
         {
           key: 'name',
@@ -40,5 +40,6 @@ export class Cloud9Stack extends Stack {
         },
       ],
     });
+      
   }
 }

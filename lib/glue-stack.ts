@@ -1,15 +1,11 @@
 import {
+  aws_glue as glue,
   aws_iam as iam,
   aws_s3 as s3,
   Stack,
   StackProps,
-  aws_glue as glue,
-  aws_s3_deployment as s3deploy,
-  RemovalPolicy,
-  AssetOptions,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import * as path from 'path';
 import { KafkaStack } from './kafka-stack';
 import { S3BucketStack } from './s3-bucket-stack';
 
