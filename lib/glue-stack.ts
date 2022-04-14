@@ -10,6 +10,7 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as path from 'path';
+import { KafkaStack } from './kafka-stack';
 import { S3BucketStack } from './s3-bucket-stack';
 
 //This value must be glueetl for Apache Spark
@@ -20,7 +21,8 @@ const GLUE_VERSION = '3.0';
 
 export class GlueStack extends Stack {
   constructor(
-    s3Stack: S3BucketStack,
+    private s3Stack: S3BucketStack,
+    private kafkaStack: KafkaStack,
     scope: Construct,
     id: string,
     props?: StackProps
@@ -49,6 +51,9 @@ export class GlueStack extends Stack {
         '--enable-spark-ui': true,
         '-enable-auto-scaling': true,
         '--job-language': 'scala',
+        '--brokers': this.kafkaStack.kafkaCluster,
+        '--topic': 'netflow20',
+        '--bucket_name': this.s3Stack.bucket.bucketName,
       },
       // Please set both Worker Type and Number of Workers.
       numberOfWorkers: 30,
