@@ -132,3 +132,7 @@ Downloaded https://repo1.maven.org/maven2/org/scalameta/trees_2.12/4.4.33/trees_
 2022.04.13 19:27:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
 2022.04.13 19:27:45 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
 2022.04.13 19:27:55 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/spark/streaming.scala
+Apr 13, 2022 8:06:12 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Apr 13, 2022 8:06:15 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
