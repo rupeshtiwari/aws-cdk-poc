@@ -1,4 +1,8 @@
-# Cdk poc
+# AWS CDK POC 
+
+## Architecture Diagram  
+
+![](assets/docs/architecture.png)
 
 
 
