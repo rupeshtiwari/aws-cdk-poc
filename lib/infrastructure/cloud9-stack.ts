@@ -1,14 +1,9 @@
 import {
-  aws_msk as msk,
-  aws_ec2 as ec2,
-  Stack,
-  StackProps,
-  aws_cloud9 as cloud9,
-  aws_codecommit as codecommit,
+  aws_cloud9 as cloud9, aws_ec2 as ec2, aws_msk as msk, Stack,
+  StackProps
 } from 'aws-cdk-lib';
-import { VpcStack } from './vpc-stack';
 import { Construct } from 'constructs';
-import { CfnEnvironmentEC2Props } from 'aws-cdk-lib/aws-cloud9';
+import { VpcStack } from './vpc-stack';
 
 export class Cloud9Stack extends Stack {
   public kafkaCluster: msk.CfnCluster;
@@ -24,15 +19,15 @@ export class Cloud9Stack extends Stack {
   }
 
   private createCloud9() {
-    const vpc = this.vpcStack.vpc;
+    const subnetId = this.subnetId;
     const c9env = new cloud9.CfnEnvironmentEC2(this, 'OctankPocEnv', {
       name: 'OctankPocEnv',
       instanceType: 'm5.large',
       automaticStopTimeMinutes: 360,
       description:
         'cloud9 environment for Octank to publish events on kafka topic',
-      subnetId: vpc.isolatedSubnets[0].subnetId,
-    
+      subnetId,
+
       tags: [
         {
           key: 'name',
@@ -40,6 +35,13 @@ export class Cloud9Stack extends Stack {
         },
       ],
     });
-      
+  }
+
+  private get subnetId() {
+    return [
+      ...this.vpcStack.vpc.selectSubnets({
+        subnetType: ec2.SubnetType.PRIVATE,
+      }).subnetIds,
+    ][0];
   }
 }

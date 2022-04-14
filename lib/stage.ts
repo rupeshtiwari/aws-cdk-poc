@@ -1,0 +1,91 @@
+import { Stage, StageProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { Cloud9Stack } from './infrastructure/cloud9-stack';
+import { GlueStack } from './infrastructure/glue-stack';
+import { KafkaStack } from './infrastructure/kafka-stack';
+import { RoleStack } from './infrastructure/role-stack';
+import { S3BucketStack } from './infrastructure/s3-bucket-stack';
+import { VpcStack } from './infrastructure/vpc-stack';
+
+export class MyPipelineStage extends Stage {
+  constructor(scope: Construct, stageName: string, props?: StageProps) {
+    super(scope, stageName, props);
+    this.createStacks(scope, stageName);
+  }
+
+  private createStacks(app: Construct, stageName: string) {
+    console.log(`Stage Name is: ${stageName}`);
+
+    const roleStack = this.createRoleStack(app);
+    const vpcStack = this.CreateVpcStack(app);
+
+    this.CreateCloud9Stack(vpcStack, app);
+
+    const s3BucketStack = this.CreateS3BucketStack(app, roleStack);
+    this.assignPermission(s3BucketStack, roleStack);
+    const s3OutputBucketStack = this.CreateS3OutputBucketStack(app, roleStack);
+    this.assignPermission(s3OutputBucketStack, roleStack);
+
+    const kafkaStack = this.CreateKafkaStack(vpcStack, app);
+    const glueStack = this.CreateGlueSTack(
+      s3BucketStack,
+      kafkaStack,
+      roleStack,
+      app
+    );
+    console.log(`${glueStack.stackName} created`);
+  }
+
+  private createRoleStack(app: Construct): RoleStack {
+    return new RoleStack(app, 'OctankPocRoleStack');
+  }
+
+  private CreateVpcStack(app: Construct) {
+    return new VpcStack(app, 'OctankPocVpcStack');
+  }
+
+  private CreateCloud9Stack(vpcStack: VpcStack, app: Construct) {
+    const cloud9Stack = new Cloud9Stack(vpcStack, app, 'OctankPocCloud9Stack');
+    cloud9Stack.addDependency(vpcStack);
+  }
+
+  private CreateS3BucketStack(app: Construct, roleStack: RoleStack) {
+    const bucketStack = new S3BucketStack(app, 'OctankPocS3Stack');
+    bucketStack.addDependency(roleStack);
+
+    return bucketStack;
+  }
+
+  private CreateS3OutputBucketStack(app: Construct, roleStack: RoleStack) {
+    const bucketStack = new S3BucketStack(app, 'OctankPocS3OutputStack');
+    bucketStack.addDependency(roleStack);
+
+    return bucketStack;
+  }
+
+  private CreateGlueSTack(
+    s3bucket: S3BucketStack,
+    kafkaStack: KafkaStack,
+    roleStack: RoleStack,
+    app: Construct
+  ) {
+    return new GlueStack(
+      s3bucket,
+      kafkaStack,
+      roleStack,
+      app,
+      'OctankPocGlueStack'
+    );
+  }
+
+  private CreateKafkaStack(vpcStack: VpcStack, app: Construct) {
+    const kafkaStack = new KafkaStack(vpcStack, app, 'OctankPocKafkaStack');
+    kafkaStack.addDependency(vpcStack);
+
+    return kafkaStack;
+  }
+
+  private assignPermission(bucketStack: any, role: RoleStack) {
+    bucketStack.bucket.grantReadWrite(role.glueRole);
+  }
+}

@@ -17,7 +17,7 @@ export class KafkaStack extends Stack {
         securityGroups: [vpcStack.kafkaSecurityGroup.securityGroupId],
         clientSubnets: [
           ...vpcStack.vpc.selectSubnets({
-            subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
+            subnetType: ec2.SubnetType.PRIVATE,
           }).subnetIds,
         ],
         instanceType: 'kafka.m5.8xlarge',

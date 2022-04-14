@@ -7,6 +7,7 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { KafkaStack } from './kafka-stack';
+import { RoleStack } from './role-stack';
 import { S3BucketStack } from './s3-bucket-stack';
 
 //This value must be glueetl for Apache Spark
@@ -19,12 +20,13 @@ export class GlueStack extends Stack {
   constructor(
     private s3Stack: S3BucketStack,
     private kafkaStack: KafkaStack,
+    roleStack: RoleStack,
     scope: Construct,
     id: string,
     props?: StackProps
   ) {
     super(scope, id, props);
-    this.createGlueJob(s3Stack.bucket, s3Stack.glueRole);
+    this.createGlueJob(s3Stack.bucket, roleStack.glueRole);
   }
 
   private createGlueJob(bucket: s3.Bucket, role: iam.Role) {

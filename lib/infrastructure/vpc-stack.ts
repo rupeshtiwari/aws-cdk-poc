@@ -1,4 +1,4 @@
-import { Stack, aws_ec2 as ec2, StackProps } from 'aws-cdk-lib';
+import { aws_ec2 as ec2, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 export class VpcStack extends Stack {
@@ -10,9 +10,17 @@ export class VpcStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
+    this.createVpc();
+
+    this.createSecurityGroups();
+  }
+
+  private createVpc() {
     // default CIDR 10.0.128.0/18
     this.vpc = new ec2.Vpc(this, 'octankVPC');
+  }
 
+  private createSecurityGroups() {
     this.kafkaSecurityGroup = new ec2.SecurityGroup(
       this,
       'octankKafkaSecurityGroup',
