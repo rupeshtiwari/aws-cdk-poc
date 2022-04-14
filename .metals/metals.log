@@ -138,3 +138,4 @@ Apr 13, 2022 8:06:15 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notif
 INFO: Unsupported notification method: $/setTrace
 Apr 14, 2022 11:03:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 1009
+2022.04.14 12:12:11 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala

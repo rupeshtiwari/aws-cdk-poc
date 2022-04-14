@@ -10,6 +10,7 @@ export class VpcStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
+    // default CIDR 10.0.128.0/18
     this.vpc = new ec2.Vpc(this, 'octankVPC');
 
     this.kafkaSecurityGroup = new ec2.SecurityGroup(
