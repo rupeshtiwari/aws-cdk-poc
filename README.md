@@ -28,4 +28,5 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 - https://datachef.co/blog/deploy-pythonshell-gluejob-using-cdk/
 - [Glue CDK Args](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+- [CI/CD AWS CDK Demo](https://github.com/rupeshtiwari/ci-cd-aws-pipeline-demo-cdk)
 
