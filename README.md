@@ -2,6 +2,8 @@
 
 Welcome to my workshop this is working code. It will create a `CI/CD` pipeline to deploy bunch of AWS resources in cloud. This is a POC to demonstrate I`nfrastructure As Code (IaC)` to deploy resources in AWS cloud using AWS CDK written in `typescript`.
 
+ http://www.rupeshtiwari.com/aws-cdk-poc/
+ 
 ## Architecture Diagram
 
 ![](assets/docs/architecture.png)
