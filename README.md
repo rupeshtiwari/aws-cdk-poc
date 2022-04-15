@@ -52,6 +52,8 @@ Below are the stacks to create AWS resources like VPC, Cloud9 environment, Roles
 
 Once you deploy your ckd it will create a code pipeline that will build and deploy the entire stack. This will create CI/CD setup so whenever you check-in the code it will build and deploy resources. It takes around 30-40 minutes to deploy entire stack. Especially AWS MSK that takes around 15-20 minutes to deploy.
 
+👉 **Below are the stages for our code pipeline**
+
 ### 1st Source Stage
 
 ![](https://i.imgur.com/0SDXwMM.png)
