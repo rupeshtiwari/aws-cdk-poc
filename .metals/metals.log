@@ -139,3 +139,35 @@ INFO: Unsupported notification method: $/setTrace
 Apr 14, 2022 11:03:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 1009
 2022.04.14 12:12:11 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+Apr 14, 2022 8:54:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1018
+2022.04.14 20:55:48 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:55:50 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:22 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:31 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:36 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:38 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:40 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:43 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:46 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:49 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:56:57 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:57:19 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:57:25 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:57:28 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:57:30 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:57:34 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+Apr 14, 2022 8:58:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1291
+2022.04.14 20:58:08 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:11 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:12 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:30 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:32 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:39 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:42 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:47 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:52 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:58:53 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala
+2022.04.14 20:59:25 WARN  no build target for: /Users/rupeshti/workdir/git-box/cdk-poc/assets/scripts/streaming.scala

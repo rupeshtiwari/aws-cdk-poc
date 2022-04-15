@@ -17,7 +17,14 @@ export class VpcStack extends Stack {
 
   private createVpc() {
     // default CIDR 10.0.128.0/18
-    this.vpc = new ec2.Vpc(this, 'octankVPC');
+    this.vpc = new ec2.Vpc(this, 'octankVPC', {
+      gatewayEndpoints: {
+        S3: {
+          // Creating S3 gateway endpoint so that Glue can communicate to S3
+          service: ec2.GatewayVpcEndpointAwsService.S3,
+        },
+      },
+    });
   }
 
   private createSecurityGroups() {
@@ -40,22 +47,6 @@ export class VpcStack extends Stack {
         allowAllOutbound: true,
       }
     );
-
-    this.lambdaSecurityGroup = new ec2.SecurityGroup(
-      this,
-      'lambdaSecurityGroup',
-      {
-        securityGroupName: 'lambdaSecurityGroup',
-        vpc: this.vpc,
-        allowAllOutbound: true,
-      }
-    );
-
-    this.kafkaSecurityGroup.connections.allowFrom(
-      this.lambdaSecurityGroup,
-      ec2.Port.allTraffic(),
-      'allowFromLambdaToKafka'
-    );
     this.kafkaSecurityGroup.connections.allowFrom(
       this.eventProducerSercurityGroup,
       ec2.Port.allTraffic(),
@@ -66,5 +57,13 @@ export class VpcStack extends Stack {
       ec2.Port.allTraffic(),
       'allowFromKafkaToeventProducer'
     );
+  }
+
+  get subnetId() {
+    return [
+      ...this.vpc.selectSubnets({
+        subnetType: ec2.SubnetType.PRIVATE,
+      }).subnetIds,
+    ][0];
   }
 }

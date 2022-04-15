@@ -1,4 +1,4 @@
-import { aws_msk as msk, aws_ec2 as ec2, Stack, StackProps } from 'aws-cdk-lib';
+import { aws_msk as msk, aws_ec2 as ec2, Stack, StackProps, CfnOutput } from 'aws-cdk-lib';
 import { VpcStack } from './vpc-stack';
 import { Construct } from 'constructs';
 
@@ -38,5 +38,7 @@ export class KafkaStack extends Stack {
         },
       },
     });
+    // Kafka bootstrap server url is not exposed 
+    // https://github.com/aws/aws-cdk/issues/7904 
   }
 }

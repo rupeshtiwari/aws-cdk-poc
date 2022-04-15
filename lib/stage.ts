@@ -27,8 +27,9 @@ export class MyPipelineStage extends Stage {
     this.assignPermission(s3OutputBucketStack, roleStack);
 
     const kafkaStack = this.CreateKafkaStack(vpcStack, app);
-    const glueStack = this.CreateGlueSTack(
+    const glueStack = this.CreateGlueStack(
       s3BucketStack,
+      vpcStack,
       kafkaStack,
       roleStack,
       app
@@ -63,13 +64,15 @@ export class MyPipelineStage extends Stage {
     return bucketStack;
   }
 
-  private CreateGlueSTack(
+  private CreateGlueStack(
     s3bucket: S3BucketStack,
+    vpcStack: VpcStack,
     kafkaStack: KafkaStack,
     roleStack: RoleStack,
     app: Construct
   ) {
     return new GlueStack(
+      vpcStack,
       s3bucket,
       kafkaStack,
       roleStack,

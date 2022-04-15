@@ -66,6 +66,10 @@ object GlueApp {
     val s3bucketName = args("bucket_name")
     val brokers = args("brokers")
     val topic = args("topic")
+    if(s3bucketName==null) s3bucketName = "octank-sdp-job-bucket"
+    if(brokers==null) brokers = "b-3.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092,b-14.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092,b-4.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092"
+    if(topic==null) topic = "netflow20"
+
     val s3BasePath = s"s3://${s3bucketName}/"
     val checkpointsFolder = "checkpoints/"
     val checkpointSuffix = "/load_test_checkpoint_with_enrichment_" + ts
