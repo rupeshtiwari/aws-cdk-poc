@@ -2,20 +2,20 @@
 
 Welcome to my workshop this is working code. It will create a `CI/CD` pipeline to deploy bunch of AWS resources in cloud. This is a POC to demonstrate I`nfrastructure As Code (IaC)` to deploy resources in AWS cloud using AWS CDK written in `typescript`.
 
- http://www.rupeshtiwari.com/aws-cdk-poc/
+http://www.rupeshtiwari.com/aws-cdk-poc/
 
 ## Architecture Diagram
 
 ![](assets/docs/architecture.png)
 
-## Prerequisite 
-1. AWS account 
+## Prerequisite
+
+1. AWS account
 2. Update `~/.aws/credential` file follow this guideline to [setup your local environment for AWS CDK](https://gist.github.com/rupeshtiwari/1cc9df1218b4d8c86c9232eeacd2b983)
 
 {% gist 1cc9df1218b4d8c86c9232eeacd2b983 %}
 
-
-## Getting Started with this repo
+## Getting Started with this repository
 
 ```
 # clone the repo
@@ -24,7 +24,7 @@ git clone https://github.com/rupeshtiwari/aws-cdk-poc
 # install node packages
 npm ci
 
-# build code 
+# build code
 npm run build
 
 # create cloudformation template
@@ -34,11 +34,10 @@ cdk synth
 cdk deploy
 
 ```
-## Code pipeline
 
-I am creating a code pipeline as well to trigger build and deploy as I check-in code to build CI/CD pipeline.
+## AWS CDK Stacks created in this project
 
-## Stacks Created
+Below are the stacks to create AWS resources like VPC, Cloud9 environment, Roles, S3 buckets, Glue job, AWS MSK cluster.
 
 - **VPC** to create private cloud
 - **Cloud9** for development and publishing events to `kafka`
@@ -47,13 +46,43 @@ I am creating a code pipeline as well to trigger build and deploy as I check-in 
 - **Glue** to run Spark stream job
 - **AWS MSK** to host broker for messaging framework built on `kafka`
 
-## Welcome to your CDK TypeScript project
+## AWS CodePipeline
+
+![](https://i.imgur.com/1lz20iF.png)
+
+Once you deploy your ckd it will create a code pipeline that will build and deploy the entire stack. This will create CI/CD setup so whenever you check-in the code it will build and deploy resources. It takes around 30-40 minutes to deploy entire stack. Especially AWS MSK that takes around 15-20 minutes to deploy.
+
+### 1st Source Stage
+
+![](https://i.imgur.com/0SDXwMM.png)
+
+- I am using GitHub as my source. As soon as I check-in new code it will trigger the pipeline
+
+### 2nd Build Stage
+
+![](https://i.imgur.com/daCKX2y.png)
+
+- Using AWS CodeBuild to build my AWS CDK project it will `npm run build` and `cdk synth` my cdk project. And create cloudformation template put it as encrypted assets in the S3 bucket.
+
+### 3rd Deployment Stage for Dev environment
+
+![](https://i.imgur.com/9P7Vhvu.png)
+
+Above are the stacks going to be deployed in DEV environment.
+
+### 4th Deployment Stage for Prod environment
+
+![](https://i.imgur.com/WuZNQef.png)
+
+Similar stacks will be deployed in prod environment after manual approval.
+
+## CDK Project details
 
 This is a blank project for TypeScript development with CDK.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-## Useful commands
+### Useful commands
 
 - `npm run build` compile typescript to js
 - `npm run watch` watch for changes and compile
@@ -64,7 +93,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - `cdk synth` emits the synthesized CloudFormation template
 - `cdk destroy` delete stack
 
-## References
+Ø
 
 - `git pull && git add . && git commit -m 'updates' && git push`
 
@@ -74,15 +103,14 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - [Glue CDK Args](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 - [CI/CD AWS CDK Demo](https://github.com/rupeshtiwari/ci-cd-aws-pipeline-demo-cdk)
 
-
-
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1700383344966810" crossorigin="anonymous"></script>
 <!-- Homepage Leaderboard -->
+
 <ins class="adsbygoogle"
 style="display:inline-block;width:728px;height:90px"
 data-ad-client="ca-pub-1700383344966810"
 data-ad-slot="1234567890"></ins>
+
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

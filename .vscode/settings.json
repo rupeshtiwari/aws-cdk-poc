@@ -1,5 +1,10 @@
 {
     "files.watcherExclude": {
         "**/target": true
-    }
+    },
+    "spellchecker.ignoreWordsList": [
+        "GitHub",
+        "CodePipeline",
+        "CloudFormation"
+    ]
 }
