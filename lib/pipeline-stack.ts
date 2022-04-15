@@ -7,6 +7,7 @@ import {
   StageDeployment,
 } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
+import { env } from '../env';
 import { MyPipelineStage } from './stage';
 
 export class PipelineStack extends Stack {
@@ -32,7 +33,7 @@ export class PipelineStack extends Stack {
   private productionStage(pipeline: CodePipeline) {
     return pipeline.addStage(
       new MyPipelineStage(this, 'Production', {
-        env: { account: '899252663854', region: 'us-east-1' },
+        env,
       })
     );
   }
@@ -44,11 +45,7 @@ export class PipelineStack extends Stack {
   }
 
   private devStage(pipeline: CodePipeline) {
-    return pipeline.addStage(
-      new MyPipelineStage(this, 'Dev', {
-        env: { account: '899252663854', region: 'us-east-1' },
-      })
-    );
+    return pipeline.addStage(new MyPipelineStage(this, 'Dev', { env }));
   }
 
   private createPipeline() {
