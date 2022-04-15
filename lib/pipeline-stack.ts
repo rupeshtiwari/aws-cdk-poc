@@ -31,8 +31,8 @@ export class PipelineStack extends Stack {
   }
 
   private createPipeline() {
-    return new CodePipeline(this, 'OctankPocPipeline', {
-      pipelineName: 'OctankPocPipeline',
+    return new CodePipeline(this, 'OctankPocPipeline1', {
+      pipelineName: 'OctankPocPipeline1',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('rupeshtiwari/aws-cdk-poc', 'main'),
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
