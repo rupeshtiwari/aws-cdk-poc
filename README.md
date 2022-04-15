@@ -12,7 +12,7 @@ Welcome to my workshop this is working code. It will create a `CI/CD` pipeline t
 1. AWS account 
 2. Update `~/.aws/credential` file follow this guideline to [setup your local environment for AWS CDK](https://gist.github.com/rupeshtiwari/1cc9df1218b4d8c86c9232eeacd2b983)
 
-{% gist 1cc9df1218b4d8c86c9232eeacd2b983" %}
+{% gist 1cc9df1218b4d8c86c9232eeacd2b983 %}
 
 
 ## Getting Started with this repo
