@@ -6,20 +6,22 @@ import {
   StackProps,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { RoleStack } from './role-stack';
 const BUCKET_NAME = 'octank-sdp-job-bucket';
 
 export class S3BucketStack extends Stack {
   bucket: s3.Bucket;
-  constructor(scope: Construct, id: string, props?: StackProps) {
+
+  constructor(roleStack:RoleStack, scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
     this.bucket = this.createS3Bucket();
-
+    this.bucket.grantReadWrite(roleStack.glueRole);
     this.uploadFilesToS3(this.bucket);
   }
 
   private createS3Bucket() {
     return new s3.Bucket(this, 'MyCdkGlueJobBucket', {
-      versioned: true,
+      versioned: false,
       bucketName: BUCKET_NAME,
       removalPolicy: RemovalPolicy.DESTROY,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,

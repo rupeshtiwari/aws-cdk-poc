@@ -61,16 +61,19 @@ object GlueApp {
     val glueContext: GlueContext = new GlueContext(spark.sparkContext)
     val args = GlueArgParser.getResolvedOptions(
       sysArgs,
-      Seq("JOB_NAME", "bucket_name","brokers","topic").toArray
+      Seq("JOB_NAME", "bucket_name","brokers","topic","output_bucket_name").toArray
     )
     val s3bucketName = args("bucket_name")
     val brokers = args("brokers")
     val topic = args("topic")
+    val outputS3BucketName = args("output_bucket_name")
+
     if(s3bucketName==null) s3bucketName = "octank-sdp-job-bucket"
     if(brokers==null) brokers = "b-3.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092,b-14.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092,b-4.msk-cluster-1.e4cubr.c24.kafka.us-east-1.amazonaws.com:9092"
     if(topic==null) topic = "netflow20"
+    if(outputS3BucketName==null) outputS3BucketName = "octank-sdp-job-output-bucket"
 
-    val s3BasePath = s"s3://${s3bucketName}/"
+    val s3BasePath = s"s3://${outputS3BucketName}/"
     val checkpointsFolder = "checkpoints/"
     val checkpointSuffix = "/load_test_checkpoint_with_enrichment_" + ts
     val s3checkpoint =

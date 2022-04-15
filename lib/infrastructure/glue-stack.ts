@@ -10,6 +10,7 @@ import { Construct } from 'constructs';
 import { KafkaStack } from './kafka-stack';
 import { RoleStack } from './role-stack';
 import { S3BucketStack } from './s3-bucket-stack';
+import { S3OutputBucketStack } from './s3-output-bucket-stack';
 import { VpcStack } from './vpc-stack';
 
 //This value must be glueetl for Apache Spark
@@ -22,6 +23,7 @@ export class GlueStack extends Stack {
   constructor(
     private vpcStack: VpcStack,
     private s3Stack: S3BucketStack,
+    private s3Outputtack: S3OutputBucketStack,
     private kafkaStack: KafkaStack,
     roleStack: RoleStack,
     scope: Construct,
@@ -29,11 +31,11 @@ export class GlueStack extends Stack {
     props?: StackProps
   ) {
     super(scope, id, props);
-    this.createGlueJob(s3Stack.bucket, roleStack.glueRole);
+    this.createGlueJob(roleStack.glueRole);
   }
 
-  private createGlueJob(bucket: s3.Bucket, role: iam.Role) {
-    const bucketName = bucket.bucketName;
+  private createGlueJob(role: iam.Role) {
+    const sourceBucketName = this.s3Stack.bucket.bucketName;
     const streamKafkaEventJobName = 'stream-kafka-events';
     const streamKafkaEventJob = new glue.CfnJob(this, streamKafkaEventJobName, {
       name: streamKafkaEventJobName,
@@ -41,11 +43,11 @@ export class GlueStack extends Stack {
       description: 'Octank Security Data Platform Job',
       command: {
         name: COMMAND_NAME,
-        scriptLocation: `s3://${bucketName}/assets/spark/streaming.scala`,
+        scriptLocation: `s3://${sourceBucketName}/assets/scripts/streaming.scala`,
       },
       glueVersion: GLUE_VERSION,
       defaultArguments: {
-        '--extra-jars': `s3://${bucketName}/assets/${SPARKAVRO_PATH}`,
+        '--extra-jars': `s3://${sourceBucketName}/assets/jars/${SPARKAVRO_PATH}`,
         '--executor-cores': 8,
         '--enable-metrics': true,
         '--enable-continuous-cloudwatch-log': true,
@@ -55,6 +57,7 @@ export class GlueStack extends Stack {
         // '--brokers': this.kafkaStack.kafkaCluster, // No way to pass bootstrap broker url https://github.com/aws/aws-cdk/issues/7904
         '--topic': 'netflow20',
         '--bucket_name': this.s3Stack.bucket.bucketName,
+        '--output_bucket_name': this.s3Outputtack.bucket.bucketName,
       },
       // Please set both Worker Type and Number of Workers.
       numberOfWorkers: 30,

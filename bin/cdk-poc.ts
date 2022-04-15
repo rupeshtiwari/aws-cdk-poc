@@ -5,6 +5,6 @@ import { env } from '../env';
 import { PipelineStack } from '../lib/pipeline-stack';
 
 const app = new cdk.App();
-new PipelineStack(app, 'OctankPocPipeline', {
+new PipelineStack(app, 'OctankPocPipelineStack', {
   env,
 });

@@ -5,12 +5,13 @@ import { GlueStack } from './infrastructure/glue-stack';
 import { KafkaStack } from './infrastructure/kafka-stack';
 import { RoleStack } from './infrastructure/role-stack';
 import { S3BucketStack } from './infrastructure/s3-bucket-stack';
+import { S3OutputBucketStack } from './infrastructure/s3-output-bucket-stack';
 import { VpcStack } from './infrastructure/vpc-stack';
 
 export class MyPipelineStage extends Stage {
   constructor(scope: Construct, stageName: string, props?: StageProps) {
     super(scope, stageName, props);
-    this.createStacks(scope, stageName);
+    this.createStacks(this, stageName);
   }
 
   private createStacks(app: Construct, stageName: string) {
@@ -22,13 +23,12 @@ export class MyPipelineStage extends Stage {
     this.CreateCloud9Stack(vpcStack, app);
 
     const s3BucketStack = this.CreateS3BucketStack(app, roleStack);
-    this.assignPermission(s3BucketStack, roleStack);
     const s3OutputBucketStack = this.CreateS3OutputBucketStack(app, roleStack);
-    this.assignPermission(s3OutputBucketStack, roleStack);
 
     const kafkaStack = this.CreateKafkaStack(vpcStack, app);
     const glueStack = this.CreateGlueStack(
       s3BucketStack,
+      s3OutputBucketStack,
       vpcStack,
       kafkaStack,
       roleStack,
@@ -51,21 +51,24 @@ export class MyPipelineStage extends Stage {
   }
 
   private CreateS3BucketStack(app: Construct, roleStack: RoleStack) {
-    const bucketStack = new S3BucketStack(app, 'OctankPocS3Stack');
-    bucketStack.addDependency(roleStack);
+    const bucketStack = new S3BucketStack(roleStack, app, 'OctankPocS3Stack');
 
     return bucketStack;
   }
 
   private CreateS3OutputBucketStack(app: Construct, roleStack: RoleStack) {
-    const bucketStack = new S3BucketStack(app, 'OctankPocS3OutputStack');
-    bucketStack.addDependency(roleStack);
+    const bucketStack = new S3OutputBucketStack(
+      roleStack,
+      app,
+      'OctankPocS3OutputStack'
+    );
 
     return bucketStack;
   }
 
   private CreateGlueStack(
     s3bucket: S3BucketStack,
+    s3outputBucketStack: S3OutputBucketStack,
     vpcStack: VpcStack,
     kafkaStack: KafkaStack,
     roleStack: RoleStack,
@@ -74,6 +77,7 @@ export class MyPipelineStage extends Stage {
     return new GlueStack(
       vpcStack,
       s3bucket,
+      s3outputBucketStack,
       kafkaStack,
       roleStack,
       app,
@@ -86,9 +90,5 @@ export class MyPipelineStage extends Stage {
     kafkaStack.addDependency(vpcStack);
 
     return kafkaStack;
-  }
-
-  private assignPermission(bucketStack: any, role: RoleStack) {
-    bucketStack.bucket.grantReadWrite(role.glueRole);
   }
 }
