@@ -9,7 +9,7 @@ Welcome to my workshop this is working code. It will create a `CI/CD` pipeline t
 ## Prerequisite 
 1. AWS account 
 2. Update `~/.aws/credential` file follow this file
-<script src="https://gist.github.com/rupeshtiwari/1cc9df1218b4d8c86c9232eeacd2b983"></script>
+{% gist 1cc9df1218b4d8c86c9232eeacd2b983" %}
 ## Getting Started
 
 ```
