@@ -34,6 +34,8 @@ export class MyPipelineStage extends Stage {
       roleStack,
       app
     );
+    glueStack.addDependency(s3BucketStack)
+    glueStack.addDependency(s3OutputBucketStack);
     console.log(`${glueStack.stackName} created`);
   }
 
