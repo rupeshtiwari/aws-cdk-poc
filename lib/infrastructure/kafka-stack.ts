@@ -29,7 +29,7 @@ export class KafkaStack extends Stack {
       },
       clusterName: 'OctankKafkaCluster',
       kafkaVersion: '2.6.2',
-      numberOfBrokerNodes: 20,
+      numberOfBrokerNodes: 10,
       encryptionInfo: {
         encryptionInTransit: {
           // means that client-broker communication is enabled for both TLS-encrypted, as well as plain text data.
