@@ -105,6 +105,8 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - [Glue CDK Args](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 - [CI/CD AWS CDK Demo](https://github.com/rupeshtiwari/ci-cd-aws-pipeline-demo-cdk)
 
+- [Code pipeline](https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/OctankPocPipeline1/view?region=us-east-1)
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1700383344966810" crossorigin="anonymous"></script>
 <!-- Homepage Leaderboard -->
 
@@ -116,3 +118,4 @@ data-ad-slot="1234567890"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
