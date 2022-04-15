@@ -30,24 +30,6 @@ export class PipelineStack extends Stack {
     this.productionStage(pipeline);
   }
 
-  private productionStage(pipeline: CodePipeline) {
-    return pipeline.addStage(
-      new MyPipelineStage(this, 'Production', {
-        env,
-      })
-    );
-  }
-
-  private addManualApproval(devStage: StageDeployment) {
-    return devStage.addPost(
-      new ManualApprovalStep('Manual Approval Before Production Stage')
-    );
-  }
-
-  private devStage(pipeline: CodePipeline) {
-    return pipeline.addStage(new MyPipelineStage(this, 'Dev', { env }));
-  }
-
   private createPipeline() {
     return new CodePipeline(this, 'OctankPocPipeline', {
       pipelineName: 'OctankPocPipeline',
@@ -56,5 +38,23 @@ export class PipelineStack extends Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
     });
+  }
+
+  private devStage(pipeline: CodePipeline) {
+    return pipeline.addStage(new MyPipelineStage(this, 'Dev', { env }));
+  }
+
+  private addManualApproval(devStage: StageDeployment) {
+    return devStage.addPost(
+      new ManualApprovalStep('Manual Approval Before Production Stage')
+    );
+  }
+
+  private productionStage(pipeline: CodePipeline) {
+    return pipeline.addStage(
+      new MyPipelineStage(this, 'Production', {
+        env,
+      })
+    );
   }
 }
